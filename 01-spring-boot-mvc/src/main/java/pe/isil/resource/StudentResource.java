@@ -18,7 +18,7 @@ public class StudentResource {
         this.studentService = studentService;
     }
 
-
+    // Obtener todos los estudiantes
     @GetMapping("/students")
     public ResponseEntity<List<Student>> getStudents(){
 
@@ -29,6 +29,7 @@ public class StudentResource {
         return new ResponseEntity<>(students, HttpStatus.OK);
     }
 
+    // Obtener un estudiante por su identificador
     @GetMapping("/students/{documentNumber}")
     public ResponseEntity<Student> getStudentByDocumentNumber(@PathVariable String documentNumber){
 
@@ -38,6 +39,7 @@ public class StudentResource {
 
     }
 
+    // Guardar un nuevo estudiante
     @PostMapping("/students")
     public ResponseEntity<Student> postStudent(@RequestBody Student student){
 
@@ -46,6 +48,7 @@ public class StudentResource {
         return new ResponseEntity<>(student, HttpStatus.CREATED);
     }
 
+    // Actualizar un estudiante
     @PutMapping("/students/{documentNumber}")
     public ResponseEntity<Student> putStudent(@RequestBody Student student,
                                               @PathVariable String documentNumber){
@@ -60,6 +63,7 @@ public class StudentResource {
 
     }
 
+    // Borrar un estudiante
     @DeleteMapping("/students/{documentNumber}")
     public ResponseEntity deleteStudent(@PathVariable String documentNumber){
 
